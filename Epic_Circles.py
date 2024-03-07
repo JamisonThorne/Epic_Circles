@@ -24,51 +24,36 @@ def main():
     result = finding_the_intersection_of_two_circles(2,3,3,1,1,4)
     1
 
-def finding_the_intersection_of_two_circles(x_1,y_1,r_1,x_2,y_2,r_2):
-    #x1 and y1 are the center of the first circle with r1 being the radius
-    #x2 and y2 are the center of the first circle with r2 being the radius
-    # First Circle Equation:   
-    x_1 = 1
-    x_2 = 1
-    y_1 = 1
-    y_2 = 1
-    r_1 = 1
-    r_2 = 1 
-    x = 1
-    y = 1
+def finding_the_intersection_of_two_circles(x1,y1,r1,x2,y2,r2):
+    # x1,y1 is the center of the first  circle, with radius r1
+    # x2,y2 is the center of the second circle, with radius r2
+    
     #remembering old math is hard
     #https://math.stackexchange.com/questions/256100/how-can-i-find-the-points-at-which-two-circles-intersect
     #https://stackoverflow.com/questions/15398427/solving-quadratic-equation
     #https://pressbooks.bccampus.ca/algebraintermediate/chapter/solve-quadratic-equations-using-the-quadratic-formula/
-    ((x-x_1)**2)+((y-y_1)**2)=(r_1**2) == (x**2)-2*((x)*(x_1))+(x_1**2)+(y**2)-2*((y)*(y_1))+(y_1**2)=(r_1**2)    (eq. 1)
-    # Second Circle Equation:   
-    ((x-x_2)**2)+((y-y_2)**2)=(r_1**2) == (x**2)-2*((x)*(x_2))+(x_2**2)+(y**2)-2*((y)*(y_2))+(y_2**2)=(r_2**2)    (eq. 2)
-    # Subtract (eq. 1) from (eq. 2) and simplify while solving for y
-    # (x**2 - x**2 -2(x)(x_1) - -2(x)(x_2) +x_1**2 - x_2**2) + y**2 - y**2-2(y)(y_1)--2(y)(y_2)+y_1**2-y_2**2 = r_1**2 - r_2**2
-    # -2(x)(x_1-x_2)-2(y)(y_1-y_2) = r_1**2 - r_2**2-x_1**2+x_2**2-y_1**2+y_2**2
-    # -2(y)(y_1-y_2) = r_1**2-r_2**2-x_1**2+x_2**2-y_1**2+y_2**2+2(x)(x_1-x_2)
-    # (y) = (r_1**2-r_2**2)/(-2(y_1-y_2))-(x_1**2+x_2**2)/(-2(y_1-y_2))-(y_1**2+y_2**2)/(-2(y_1-y_2))-(x)((x_1-x_2)/((y_1-y_2)))    (eq. 3)
-    # Plug eq. 3 instead eq. 1 or eq.2 and solve for x. Plug x value(s) into eq. 3 and solve for y
-    # Note: Can verify same x values by plugging into both eq. 1 and eq. 2 which will be done below before solving for y
-    c=(x_1**2)+((((r_1**2-r_2**2)/(-2*(y_1-y_2)))-((x_1**2+x_2**2)/(-2*(y_1-y_2)))-((y_1**2+y_2**2)/(-2*(y_1-y_2)))-(x)*(((x_1-x_2)/((y_1-y_2))))))**2-(2*((((r_1**2-r_2**2)/(-2*(y_1-y_2)))-((x_1**2+x_2**2)/(-2*(y_1-y_2)))-((y_1**2+y_2**2)/(-2*(y_1-y_2)))-(x)*(((x_1-x_2)/((y_1-y_2))))))*(y_1))+(y_1**2)-(r_1**2)
-    first_x = []
-    second_x = []
-    [first_x,second_x] = Solve_My_Quadratic(1,-2*x_1,c)
-    1
- 
-# def Solve_My_Quadratic(a,b,c):
-#     #   a*x**2+b*x+c=0
-#     d = b**2-4*a*c # discriminant
-
-#     if d < 0:
-#         # print "This equation has no real solution"
-#     elif d == 0:
-#         x = (-b+math.sqrt(b**2-4*a*c))/2*a
-#         # print "This equation has one solutions: ", x
-#     else:
-#         x1 = (-b+math.sqrt(b**2-4*a*c))/2*a
-#         x2 = (-b-math.sqrt(b**2-4*a*c))/2*a
-#         # print "This equation has two solutions: ", x1, " and", x2
+    r1r2_numerator_add = (r1**2)+(r2**2)
+    r1r2_numerator_sub = (r1**2)-(r2**2)
+    R = math.sqrt((x2-x1)**2+(y2-y1)**2)
+    a = r1r2_numerator_sub/(2*R)
+    c = math.sqrt((2*(r1r2_numerator_add/(R**2)))-((r1r2_numerator_sub**2)/(R**4))-1)
+    fx = ((x1+x2)/2)+a*(x2-x1)
+    gx = (c/2)
+    fy = ((y1+y2)/2)+a*(y2-y1)
+    fg = 
+    
+    
+def Solve_My_Quadratic(a,b,c):
+    #   Quadratic equation reminder:    a*x**2+b*x+c=0
+    d = b**2-4*a*c # discriminant, I don't remember this at all from maths
+    if d < 0:
+        raise Exception("No real solution")
+    elif d == 0:
+        value_1 = (-b+math.sqrt(b**2-4*a*c))/2*a
+        raise Exception("This equation has 1 solution")
+    else:
+        value_1 = (-b+math.sqrt(b**2-4*a*c))/2*a
+        value_2 = (-b-math.sqrt(b**2-4*a*c))/2*a
 
 def PointsInCircum(r,number_of_points):
     pi = math.pi
