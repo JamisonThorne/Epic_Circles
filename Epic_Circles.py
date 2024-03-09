@@ -1,34 +1,124 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import math 
+from fraction import Fraction
 
 def main():
     # Define a radius for the first circle, after that everything else is taken care of. Enjoy :)
     radius_n = 1    # radius of first circle
     origin_x = 0    # origin (center of first circle) in this case will always be at 0,0
     origin_y = 0    # origin (center of first circle) in this case will always be at 0,0
+    ###############################################
     graph_range = 1
-
-    circle1 = plt.Circle((origin_x, origin_y), radius_n, color='r',fill=False)
-    circle2 = plt.Circle((origin_x, origin_y + radius_n/2), radius_n/2, color='blue',fill=False)
-    circle3 = plt.Circle((origin_x, origin_y - radius_n/2), radius_n/2, color='blue',fill=False)
-
+    # Figure
     fig, ax = plt.subplots() # note we must use plt.subplots, not plt.subplot
     ax.cla() # clear things for fresh plot
-
     # change default range so that new circles will work
     ax.set_xlim((-1*graph_range, graph_range))
     ax.set_ylim((-1*graph_range, graph_range))
-    # change default range so that new circles will work
-    ax.add_patch(circle1)
-    ax.add_patch(circle2)
-    ax.add_patch(circle3)
+    ###############################################
+    # Drawing Initial Circle
+    circle = plt.Circle((origin_x, origin_y), radius_n, color='r',fill=False)
+    ax.add_patch(circle)
+    #################################
+    #   First Circle
+    next_circle_x = origin_x
+    next_circle_y = origin_y + radius_n/2
+    circle = plt.Circle((next_circle_x, next_circle_y), radius_n/2, color='blue',fill=False)
+    ax.add_patch(circle)
+    #################################
+    #   Second Circle
+    next_circle_x = origin_x
+    next_circle_y = origin_y - radius_n/2
+    circle = plt.Circle((next_circle_x, next_circle_y), radius_n/2, color='blue',fill=False)
+    ax.add_patch(circle)
+    #################################
+    #   Descartes
+    r4 = Descartes_Theorem(0.5,0.5,-1)
+    #################################
+    #   Third Circle
+    next_circle_x = 1-r4
+    third_circle_radius = r4
+    next_circle_y = 0
+    circle = plt.Circle((next_circle_x, next_circle_y), r4, color='blue',fill=False)
+    ax.add_patch(circle)
+    #################################
+    #   Fourth Circle 
+    next_circle_x = r4-1
+    next_circle_y = 0
+    circle = plt.Circle((next_circle_x, next_circle_y), r4, color='blue',fill=False)
+    ax.add_patch(circle)
+    #################################
+    #   Descartes
+    r4 = Descartes_Theorem(r4,0.5,0.5)
+    #################################
+    #   Fourth Circle 
+    next_circle_x = -1*radius_n + third_circle_radius + third_circle_radius + r4
+    next_circle_y = 0
+    circle = plt.Circle((next_circle_x, next_circle_y), r4, color='blue',fill=True)
+    ax.add_patch(circle)
+    #################################
+    #   Fourth Circle 
+    next_circle_x = 1*radius_n - third_circle_radius - third_circle_radius - r4
+    next_circle_y = 0
+    circle = plt.Circle((next_circle_x, next_circle_y), r4, color='blue',fill=True)
+    ax.add_patch(circle)
+
     plt.show()
-    [x0,y0,x1,y1] = finding_the_intersection_of_two_circles(2,3,3,1,-1,4)
 
 
+    
+    
+    
+    
 
-def finding_the_intersection_of_two_circles(x0,y0,r0,x1,y1,r1):
+    plt.show()
+    1
+    # [x0,y0,x1,y1] = intersection_of_two_circles(next_circle_x,next_circle_y,radius_n/2,origin_x,origin_y,radius_n/2)
+    # [a1, b1] = equation_of_a_line(next_circle_x,next_circle_y,x0,y0) # Find the equation of a line going from point of intersection to center
+    # plt.axline((next_circle_x, next_circle_y), (x0, y0))
+    # plt.axline((next_circle_x, next_circle_y), (x1, y1))
+    # plt.plot(next_circle_x, next_circle_y, x0, y0, marker = 'o')
+    # plt.plot(next_circle_x, next_circle_y, x1, y1, marker = 'o')
+    
+    # next_circle_x = origin_x - 0.5
+    # next_circle_y = origin_y
+    # # circle = plt.Circle((next_circle_x, next_circle_y), radius_n/2, color='blue',fill=False)
+    # # ax.add_patch(circle)
+    # plt.plot(-(b0/a0), 0, x1,0, marker = 'o')
+    # plt.plot(-1-x1, 0, marker = 'o')
+    # plt.plot((-(b0/a0))-x1/2, 0, marker = '^')
+    # temp = (-(b0/a0))-x1/2
+    # test1 = -1-temp
+    # dx = x1 - temp
+    # dy = y1
+    # test2 = d = math.sqrt(dx**2 + dy**2)
+    # 1
+    
+    
+    # plt.show()
+    # [a0, b0] = equation_of_a_line(next_circle_x,next_circle_y,x0,y0) # Find the equation of a line going from point of intersection to center
+    # equation_of_a_line(next_circle_x,next_circle_y,x1,y1) # Find the equation of a line going from point of intersection to center
+    # 1
+
+def Descartes_Theorem(r1,r2,r3):
+    k1 = 1/r1
+    k2 = 1/r2
+    k3 = 1/r3
+    k_sum = k1+k2+k3
+    k_multiple = k1*k2 + k2*k3 + k1*k3
+    k4_solution1 = k_sum + 2*math.sqrt(k_multiple)
+    k4_solution2 = k_sum - 2*math.sqrt(k_multiple)
+    result = max(k4_solution1,k4_solution2)
+    return 1/result
+
+def equation_of_a_line(x0,y0,x1,y1):
+    a = (y1-y0)/(x1-x0)
+    b = y0 - a*x0
+    #   y = a*x+b
+    return a, b
+    
+def intersection_of_two_circles(x0,y0,r0,x1,y1,r1):
     # Reference: https://mathworld.wolfram.com/Circle-CircleIntersection.html
     # x0,y0 is the center of the first  circle, with radius r0
     # x1,y1 is the center of the second circle, with radius r1
