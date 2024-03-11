@@ -5,6 +5,7 @@ from fraction import Fraction
 
 def main():
     # Define a radius for the first circle, after that everything else is taken care of. Enjoy :)
+    decartes_circles = []
     radius_n = 1    # radius of first circle
     origin_x = 0    # origin (center of first circle) in this case will always be at 0,0
     origin_y = 0    # origin (center of first circle) in this case will always be at 0,0
@@ -34,45 +35,41 @@ def main():
     ax.add_patch(circle)
     #################################
     #   Descartes
-    r4 = Descartes_Theorem(0.5,0.5,-1)
+    decartes_circles.append(Descartes_Theorem(0.5,0.5,-1))
     #################################
     #   Third Circle
-    next_circle_x = 1-r4
-    third_circle_radius = r4
+    next_circle_x = 1-decartes_circles[0]
+    third_circle_radius = decartes_circles[0]
     next_circle_y = 0
-    circle = plt.Circle((next_circle_x, next_circle_y), r4, color='blue',fill=False)
+    circle = plt.Circle((next_circle_x, next_circle_y), decartes_circles[0], color='blue',fill=False)
     ax.add_patch(circle)
     #################################
     #   Fourth Circle 
-    next_circle_x = r4-1
+    next_circle_x = decartes_circles[0]-1
     next_circle_y = 0
-    circle = plt.Circle((next_circle_x, next_circle_y), r4, color='blue',fill=False)
+    circle = plt.Circle((next_circle_x, next_circle_y), decartes_circles[0], color='blue',fill=False)
     ax.add_patch(circle)
     #################################
     #   Descartes
-    r4 = Descartes_Theorem(r4,0.5,0.5)
+    decartes_circles.append(Descartes_Theorem(decartes_circles[0],0.5,0.5))
     #################################
-    #   Fourth Circle 
-    next_circle_x = -1*radius_n + third_circle_radius + third_circle_radius + r4
+    #   Kissing Circle 
+    next_circle_x = -1*radius_n + third_circle_radius + third_circle_radius + decartes_circles[1]
     next_circle_y = 0
-    circle = plt.Circle((next_circle_x, next_circle_y), r4, color='blue',fill=True)
+    circle = plt.Circle((next_circle_x, next_circle_y), decartes_circles[1], color='blue',fill=True)
     ax.add_patch(circle)
     #################################
-    #   Fourth Circle 
-    next_circle_x = 1*radius_n - third_circle_radius - third_circle_radius - r4
+    #   Kissing Circle 
+    next_circle_x = 1*radius_n - third_circle_radius - third_circle_radius - decartes_circles[1]
     next_circle_y = 0
-    circle = plt.Circle((next_circle_x, next_circle_y), r4, color='blue',fill=True)
+    circle = plt.Circle((next_circle_x, next_circle_y), decartes_circles[1], color='blue',fill=True)
     ax.add_patch(circle)
-
-    plt.show()
-
-
-    
-    
-    
-    
-
-    plt.show()
+    #################################
+    #   At this point, the next circles to be found need to be automated or this could get painful.
+    #   Probably after automation of next steps, the beginning can be automated
+    #################################
+    #   Descartes
+    decartes_circles.append(Descartes_Theorem(decartes_circles[0],0.5,-1))
     1
     # [x0,y0,x1,y1] = intersection_of_two_circles(next_circle_x,next_circle_y,radius_n/2,origin_x,origin_y,radius_n/2)
     # [a1, b1] = equation_of_a_line(next_circle_x,next_circle_y,x0,y0) # Find the equation of a line going from point of intersection to center
@@ -101,6 +98,11 @@ def main():
     # equation_of_a_line(next_circle_x,next_circle_y,x1,y1) # Find the equation of a line going from point of intersection to center
     # 1
 
+def Complex_Descartes_Theorem(r1,r2,r3):
+    #   Calculates the center of the tangential circle:
+    #       z4 = z1*k1+z2*k2+z3*k3+/-2(root(k1*k2*z1*z2+k2*k3*z2*z3+k1*k3*z1*z3))/k4
+    #   Where k is radius or circles
+    #   z is the complex number of x,y (center coordinates or circle) where z = x + iy
 def Descartes_Theorem(r1,r2,r3):
     k1 = 1/r1
     k2 = 1/r2
