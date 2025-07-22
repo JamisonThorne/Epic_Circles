@@ -19,11 +19,14 @@ def getComplexNumberSubtraction(complex_number1,complex_number2):
     return complex(a-c, b-d)
 
 def getComplexNumberMultipliedConstant(complex_number,constant_number):
+    # multiply complex number against a constant and returns result
+    # (a + ib) * constant = (a * constant) + (b * constant)
     a = complex_number.real
     b = complex_number.imag
     return complex((a*constant_number),(b*constant_number))
 
 def getComplexNumberMultiplication(complex_number_1,complex_number_2):
+    # multiply two complex numbers
     # (a + ib) (c + id) = (ac - bd) + i(ad + bc)
     a = complex_number_1.real
     b = complex_number_1.imag
@@ -31,15 +34,20 @@ def getComplexNumberMultiplication(complex_number_1,complex_number_2):
     d = complex_number_2.imag
     return complex((a*c)-(b*d),(a*d)+(b*c))
 
-def getComplexNumberSquareRoot(complex_number):
+def getSquareRootFromComplexNumber(complex_number):
+    # TODO technically needs to return more than one result
+    # TODO see this: https://www.google.com/search?q=complex+square+root+example&rlz=1C1VDKB_enUS932US932&oq=complex+square+root+example&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIICAEQABgWGB4yDQgCEAAYhgMYgAQYigUyDQgDEAAYhgMYgAQYigUyDQgEEAAYhgMYgAQYigUyCggFEAAYogQYiQUyCggGEAAYgAQYogTSAQg0MjU0ajBqN6gCALACAA&sourceid=chrome&ie=UTF-8#vhid=wl3lkSNz8Pb1SM&vssid=l
+    # TODO 5. Important Note: Since trigonometric functions are periodic, 
+    # there are actually two square roots for any complex number (except zero). 
+    # These are found by adding 2π (or 360 degrees) to the argument before
+    # dividing by two: w = √r (cos((θ + 2π)/2) + i sin((θ + 2π)/2)), which 
+    # simplifies to w = √r (cos(π + θ/2) + i sin(π + θ/2)) take the square
+    # root of the modulus and divide the argument by two
+    # (a + ib) = (sqrt(r) * cos(arctangent(theta/2), sqrt(r) * sin(arctangent(theta/2)i)
     a = complex_number.real
     b = complex_number.imag
-    # Calculate distance from origin to imaginary point a+bi
-    r = sqrt((a**2)+(b**2))
+    r = sqrt((a**2)+(b**2)) # modulus of a complex number is the distance from the origin of the complex plane
     root_r = sqrt(r)
-    # Calculate angle theta for imaginary point a+bi
-    # radians(current_angles[i]) 
-    theta = atan2(b, a)
+    theta = atan2(b, a) # Calculate angle theta for imaginary point a+bi
     half_theta = theta/2
-    #   Calculate new real number
     return complex(root_r*cos(half_theta),root_r*sin(half_theta))
