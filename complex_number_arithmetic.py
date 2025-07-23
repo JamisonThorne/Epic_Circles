@@ -34,7 +34,7 @@ def getComplexNumberMultiplication(complex_number_1,complex_number_2):
     d = complex_number_2.imag
     return complex((a*c)-(b*d),(a*d)+(b*c))
 
-def getSquareRootFromComplexNumber(complex_number):
+def getComplexNumberSquareRoot(complex_number):
     # TODO technically needs to return more than one result
     # TODO see this: https://www.google.com/search?q=complex+square+root+example&rlz=1C1VDKB_enUS932US932&oq=complex+square+root+example&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIICAEQABgWGB4yDQgCEAAYhgMYgAQYigUyDQgDEAAYhgMYgAQYigUyDQgEEAAYhgMYgAQYigUyCggFEAAYogQYiQUyCggGEAAYgAQYogTSAQg0MjU0ajBqN6gCALACAA&sourceid=chrome&ie=UTF-8#vhid=wl3lkSNz8Pb1SM&vssid=l
     # TODO 5. Important Note: Since trigonometric functions are periodic, 
