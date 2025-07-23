@@ -1,3 +1,8 @@
+from math import sqrt
+import copy
+from complex_number_arithmetic import getComplexNumberMultipliedConstant,getComplexNumberSum,getComplexNumberMultiplication,getComplexNumberSquareRoot,getComplexNumberSubtraction
+from geometry import  
+
 def descartes_theorem(k1,k2,k3):
     #   k4 = k1+k2+k3+/-2*sqrt(k1*k2+k2*k3+k1*k3)
     #   k4 has two possible values
@@ -19,25 +24,25 @@ def complex_descartes_theorem(current_circle):
     k1 = current_circle[0][1]
     k2 = current_circle[1][1]
     k3 = current_circle[2][1]
-    k4a, k4b = Descartes_Theorem(k1,k2,k3)
+    k4a, k4b = descartes_theorem(k1,k2,k3)
     for k4 in [k4a, k4b]:
         r4 = 1/k4
         #########
         #   Calculate the first portion of Descartes Complex Theorem
-        z1k1 = Complex_Real_Multiply(z1,k1)  #   Multiply complex number by curvature k (1/r)
-        z2k2 = Complex_Real_Multiply(z2,k2)  #   Multiply complex number by curvature k (1/r)
-        z3k3 = Complex_Real_Multiply(z3,k3)  #   Multiply complex number by curvature k (1/r)
-        first_portion = Complex_Add(Complex_Add(z1k1,z2k2),z3k3)
+        z1k1 = getComplexNumberMultipliedConstant(z1,k1)  #   Multiply complex number by curvature k (1/r)
+        z2k2 = getComplexNumberMultipliedConstant(z2,k2)  #   Multiply complex number by curvature k (1/r)
+        z3k3 = getComplexNumberMultipliedConstant(z3,k3)  #   Multiply complex number by curvature k (1/r)
+        first_portion = getComplexNumberSum(getComplexNumberSum(z1k1,z2k2),z3k3)
         ###### 
         #   Calculate the second portion of Descartes Complex Theorem
-        z1k1_z2k2_prod = Complex_Multiply(z1k1,z2k2)    #   Multiple two complex numbers together
-        z2k2_z3k3_prod = Complex_Multiply(z2k2,z3k3)    #   Multiple two complex numbers together
-        z1k1_z3k3_prod = Complex_Multiply(z1k1,z3k3)    #   Multiple two complex numbers together
-        complex_number_sum = Complex_Add(Complex_Add(z1k1_z2k2_prod,z2k2_z3k3_prod),z1k1_z3k3_prod)   #   Add together above resulting multiples
-        sqrt_second_portion = Complex_Root(complex_number_sum)  # Calculate the root of the complex number
-        z4 = Complex_Real_Multiply(Complex_Add(first_portion,(Complex_Real_Multiply(sqrt_second_portion,2))),1/k4)    #   Calculate Final Complex Number
+        z1k1_z2k2_prod = getComplexNumberMultiplication(z1k1,z2k2)    #   Multiple two complex numbers together
+        z2k2_z3k3_prod = getComplexNumberMultiplication(z2k2,z3k3)    #   Multiple two complex numbers together
+        z1k1_z3k3_prod = getComplexNumberMultiplication(z1k1,z3k3)    #   Multiple two complex numbers together
+        complex_number_sum = getComplexNumberSum(getComplexNumberSum(z1k1_z2k2_prod,z2k2_z3k3_prod),z1k1_z3k3_prod)   #   Add together above resulting multiples
+        sqrt_second_portion = getComplexNumberSquareRoot(complex_number_sum)  # Calculate the root of the complex number
+        z4 = getComplexNumberMultipliedConstant(getComplexNumberSum(first_portion,(getComplexNumberMultipliedConstant(sqrt_second_portion,2))),1/k4)    #   Calculate Final Complex Number
         kissing_circle.append([z4.real,z4.imag,r4]) #   center, radius
-        z4 = Complex_Real_Multiply(Complex_Sub(first_portion,(Complex_Real_Multiply(sqrt_second_portion,2))),1/k4)    #   Calculate Final Complex Number        
+        z4 = getComplexNumberMultipliedConstant(getComplexNumberSubtraction(first_portion,(getComplexNumberMultipliedConstant(sqrt_second_portion,2))),1/k4)    #   Calculate Final Complex Number        
         kissing_circle.append([z4.real,z4.imag,r4]) #   center, radius
         return kissing_circle
     
@@ -55,7 +60,7 @@ def find_descartes_circles(current_circle,tracker,R):
                             tangential_circles[0][2] = -1 * tangential_circles[0][2]
                         tangential_circles = convert_from_r_to_k(tangential_circles)
                         tangential_circles = convert_toComplexNumbers(tangential_circles)
-                        kissing_circles = complexDescartesTheorem(tangential_circles)
+                        kissing_circles = complex_descartes_theorem(tangential_circles)
                         tangential_circles[:3] = convert_toRealNumbers(tangential_circles[:3])
                         tangential_circles[:3] = convert_from_k_to_r(tangential_circles[:3])
                         if tangential_circles[0][2] == -1*(R/1):
