@@ -51,3 +51,15 @@ def getComplexNumberSquareRoot(complex_number):
     theta = atan2(b, a) # Calculate angle theta for imaginary point a+bi
     half_theta = theta/2
     return complex(root_r*cos(half_theta),root_r*sin(half_theta))
+
+def convert_real_to_complex_numbers(tangential_circles):
+    temp = []
+    for i in range(0,len(tangential_circles)):
+        temp.append([complex(tangential_circles[i][0],tangential_circles[i][1]),tangential_circles[i][2]])
+    return temp
+
+def convert_complex_to_real_numbers(tangential_circles):
+    temp = []
+    for i in range(0,len(tangential_circles)):
+        temp.append([tangential_circles[i][0].real,tangential_circles[i][0].imag,tangential_circles[i][1]])
+    return temp
