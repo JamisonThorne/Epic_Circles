@@ -1,3 +1,6 @@
+import numpy as np
+from math import sqrt, isclose
+
 def convert_circle_curvature_to_radius(tangential_circles):
     # differential geometry
     for i in range(0,len(tangential_circles)):

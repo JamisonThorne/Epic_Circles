@@ -1,7 +1,7 @@
 from math import sqrt
 import copy
-from complex_number_arithmetic import getComplexNumberMultipliedConstant,getComplexNumberSum,getComplexNumberMultiplication,getComplexNumberSquareRoot,getComplexNumberSubtraction
-from geometry import  
+from complex_number_arithmetic import getComplexNumberMultipliedConstant,getComplexNumberSum,getComplexNumberMultiplication,getComplexNumberSquareRoot,getComplexNumberSubtraction, convert_real_to_complex_numbers, convert_complex_to_real_numbers
+from geometry import  convert_circle_radius_to_curvature, convert_circle_curvature_to_radius, round_my_circle, find_my_tangent_circle, get_unique_array
 
 def descartes_theorem(k1,k2,k3):
     #   k4 = k1+k2+k3+/-2*sqrt(k1*k2+k2*k3+k1*k3)
@@ -58,11 +58,11 @@ def find_descartes_circles(current_circle,tracker,R):
                         tangential_circles = [tangential_circles[i], tangential_circles[j], tangential_circles[k]]
                         if tangential_circles[0][2] == R:
                             tangential_circles[0][2] = -1 * tangential_circles[0][2]
-                        tangential_circles = convert_from_r_to_k(tangential_circles)
-                        tangential_circles = convert_toComplexNumbers(tangential_circles)
+                        tangential_circles = convert_circle_radius_to_curvature(tangential_circles)
+                        tangential_circles = convert_real_to_complex_numbers(tangential_circles)
                         kissing_circles = complex_descartes_theorem(tangential_circles)
-                        tangential_circles[:3] = convert_toRealNumbers(tangential_circles[:3])
-                        tangential_circles[:3] = convert_from_k_to_r(tangential_circles[:3])
+                        tangential_circles[:3] = convert_complex_to_real_numbers(tangential_circles[:3])
+                        tangential_circles[:3] = convert_circle_curvature_to_radius(tangential_circles[:3])
                         if tangential_circles[0][2] == -1*(R/1):
                             tangential_circles[0][2] = -1 * tangential_circles[0][2]
                         kissing_circles = round_my_circle(kissing_circles)

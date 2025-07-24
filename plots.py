@@ -1,3 +1,7 @@
+from geometry import find_number_of_unique_radii
+import matplotlib.pyplot as plt
+
+
 def plot_myCircles(current_circle,graph_bounds):
     unique_radii = find_number_of_unique_radii(current_circle)
     # cmap = plt.get_cmap('hsv')
