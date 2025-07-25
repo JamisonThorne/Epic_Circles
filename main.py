@@ -1,100 +1,49 @@
 from math import cos, sin, radians
-from plots import plot_myCircles
+# from plots import plot_myCircles
 from geometry import track_tangent_circles, find_small_r
 from decartes_theorems import find_descartes_circles
+import matplotlib.pyplot as plt
+from matplotlib.patches import Circle
+import numpy as np
 
 def main():
-    R = 50
-    number_of_starting_inner_circles = 2
-    graph_bounds = R + R/2
+    R = 50  # Outer circle needs to be large enough to display smaller circles generated
+    number_of_starting_inner_circles = 2    # acceptable values; 2,3,4,5
+    graph_bounds = R + R/2  # just to provide a nice buffer around the outer circle
     cir_res = []
-    for i in range(0,5):
+    fig, ax = plt.subplots(2,2)
+    axes = ax.flat
+    for i in range(0,4):
         tracker = []
         if i==0:
             current_circle = initialize_setup(number_of_starting_inner_circles, R)
-            plot_myCircles(current_circle, graph_bounds)
-            # print("np.shape(current_circle)",np.shape(current_circle))
+            # plot_myCircles(current_circle, graph_bounds, i)
             tracker = track_tangent_circles(current_circle)
             cir_res = find_descartes_circles(current_circle,tracker,R)
-            # print("tracker",tracker.sum())
-            # print("cir_res",cir_res)
-            plot_myCircles(cir_res, graph_bounds)
+            # plot_myCircles(cir_res, graph_bounds, i)
+            # ax.cla() # clear things for fresh plot
+            # change default range so that new circles will work
+            axes[i].set_xlim((-1*graph_bounds, graph_bounds))
+            axes[i].set_ylim((-1*graph_bounds,  graph_bounds))
+            for circle_idx in range(0,len(cir_res)):
+                # color = colors[int(np.where(unique_radii == cir_res[i][2])[0])]
+                # circle = ax[i].Circle((cir_res[i][0], cir_res[i][1]), -1*cir_res[i][2], color=color,fill=False)
+                circle = Circle((cir_res[circle_idx][0], cir_res[circle_idx][1]), -1*cir_res[circle_idx][2],fill=False)
+                axes[i].add_patch(circle)
         else:
-            # print("np.shape(current_circle)",np.shape(cir_res))
             tracker = track_tangent_circles(cir_res)
             cir_res.extend(find_descartes_circles(cir_res,tracker,R))
-            # print("tracker",tracker.sum())
-            # print("cir_res",cir_res)
-            plot_myCircles(cir_res, graph_bounds)
-
-    # R = 50
-    # number_of_starting_inner_circles = 3
-    # graph_bounds = R + R/2
-    # cir_res = []
-    # for i in range(0,5):
-    #     tracker = []
-    #     if i==0:
-    #         current_circle = initialize_setup(number_of_starting_inner_circles, R)
-    #         plot_myCircles(current_circle, graph_bounds)
-    #         # print("np.shape(current_circle)",np.shape(current_circle))
-    #         tracker = track_tangent_circles(current_circle)
-    #         cir_res = find_descartes_circles(current_circle,tracker,R)
-    #         # print("tracker",tracker.sum())
-    #         # print("cir_res",cir_res)
-    #         plot_myCircles(cir_res, graph_bounds)
-    #     else:
-    #         # print("np.shape(current_circle)",np.shape(cir_res))
-    #         tracker = track_tangent_circles(cir_res)
-    #         cir_res.extend(find_descartes_circles(cir_res,tracker,R))
-    #         # print("tracker",tracker.sum())
-    #         # print("cir_res",cir_res)
-    #         plot_myCircles(cir_res, graph_bounds)
-
-    # R = 50
-    # number_of_starting_inner_circles = 4
-    # graph_bounds = R + R/2
-    # cir_res = []
-    # for i in range(0,5):
-    #     tracker = []
-    #     if i==0:
-    #         current_circle = initialize_setup(number_of_starting_inner_circles, R)
-    #         plot_myCircles(current_circle, graph_bounds)
-    #         # print("np.shape(current_circle)",np.shape(current_circle))
-    #         tracker = track_tangent_circles(current_circle)
-    #         cir_res = find_descartes_circles(current_circle,tracker,R)
-    #         # print("tracker",tracker.sum())
-    #         # print("cir_res",cir_res)
-    #         plot_myCircles(cir_res, graph_bounds)
-    #     else:
-    #         # print("np.shape(current_circle)",np.shape(cir_res))
-    #         tracker = track_tangent_circles(cir_res)
-    #         cir_res.extend(find_descartes_circles(cir_res,tracker,R))
-    #         # print("tracker",tracker.sum())
-    #         # print("cir_res",cir_res)
-    #         plot_myCircles(cir_res, graph_bounds)
-
-    # R = 50
-    # number_of_starting_inner_circles = 5
-    # graph_bounds = R + R/2
-    # cir_res = []
-    # for i in range(0,5):
-    #     tracker = []
-    #     if i==0:
-    #         current_circle = initialize_setup(number_of_starting_inner_circles, R)
-    #         plot_myCircles(current_circle, graph_bounds)
-    #         # print("np.shape(current_circle)",np.shape(current_circle))
-    #         tracker = track_tangent_circles(current_circle)
-    #         cir_res = find_descartes_circles(current_circle,tracker,R)
-    #         # print("tracker",tracker.sum())
-    #         # print("cir_res",cir_res)
-    #         plot_myCircles(cir_res, graph_bounds)
-    #     else:
-    #         # print("np.shape(current_circle)",np.shape(cir_res))
-    #         tracker = track_tangent_circles(cir_res)
-    #         cir_res.extend(find_descartes_circles(cir_res,tracker,R))
-    #         # print("tracker",tracker.sum())
-    #         # print("cir_res",cir_res)
-    #         plot_myCircles(cir_res, graph_bounds)
+            # plot_myCircles(cir_res, graph_bounds, i)6
+            # ax[i].cla() # clear things for fresh plot
+            # change default range so that new circles will work
+            axes[i].set_xlim((-1*graph_bounds, graph_bounds))
+            axes[i].set_ylim((-1*graph_bounds,  graph_bounds))
+            for circle_idx in range(0,len(cir_res)):
+                # color = colors[int(np.where(unique_radii == current_circle[i][2])[0])]
+                # circle = ax[i].Circle((current_circle[i][0], current_circle[i][1]), -1*current_circle[i][2], color=color,fill=False)
+                circle = plt.Circle((cir_res[circle_idx][0], cir_res[circle_idx][1]), -1*cir_res[circle_idx][2],fill=False)
+                axes[i].add_patch(circle)
+    plt.show()
             
 def initialize_setup(number_of_starting_circles,R):
     r = find_small_r(R, number_of_starting_circles)
