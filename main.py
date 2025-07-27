@@ -53,7 +53,7 @@ def initialize_setup(number_of_starting_circles,R):
         current_angles[i] = radians(current_angles[i]) 
     current_circle.append([0,0,R]) #   center, radius
     for placement_angles in current_angles:
-        current_circle.append([(R-r)*cos(placement_angles),(R-r)*sin(placement_angles),r])    #  Define Circles
+        current_circle.append([(R-r)*round(cos(placement_angles),2),(R-r)*round(sin(placement_angles),2),r])    #  Define Circles
     return current_circle
 
 if __name__ == "__main__":
