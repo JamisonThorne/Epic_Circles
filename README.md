@@ -5,14 +5,14 @@ Descartes' kissing circles, also known as the Descartes Circle Theorem, describe
 ### The Descartes Circle Theorem
 Given three circles touching tangentially, the inner circle that fits between all three circles has curvature k4 such that:
 
-#### $$(k_1 + k_2 + k_3 + k_4)^2 = 2(k_1^2 + k_2^2 + k_3^2 + k_4^2)$$ $\\Rightarrow$ $$k_4 = k_1 + k_2 + k_3 \pm 2\sqrt{k_1 k_2 + k_2 k_3 + k_1 k_3}$$
+## $$(k_1 + k_2 + k_3 + k_4)^2 = 2(k_1^2 + k_2^2 + k_3^2 + k_4^2)$$ $\\Rightarrow$ $$k_4 = k_1 + k_2 + k_3 \pm 2\sqrt{k_1 k_2 + k_2 k_3 + k_1 k_3}$$
 
 ### Complex Decartes Circle Theorem
 Finds the ***center*** of the fourth circles radius
 
 Calculates the center of the tangential circle:
 
-#### $$z_4 = \frac{z_1 k_1 + z_2 k_2 + z_3 k_3 \pm 2\sqrt{k_1 k_2 z_1 z_2 + k_2 k_3 z_2 z_3 + k_1 k_3 z_1 z_3}}{k_4}$$
+## $$z_4 = \frac{z_1 k_1 + z_2 k_2 + z_3 k_3 \pm 2\sqrt{k_1 k_2 z_1 z_2 + k_2 k_3 z_2 z_3 + k_1 k_3 z_1 z_3}}{k_4}$$
 
 z is the complex number of x,y (center coordinates or circle) where z = x + iy  
 
