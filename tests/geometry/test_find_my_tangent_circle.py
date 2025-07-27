@@ -2,7 +2,7 @@ import numpy as np
 from geometry import find_my_tangent_circle
 
 def test_find_my_tangent_circle():
-    tangential = [[0, 0, 1], [2, 0, 1], [1, np.sqrt(3), 1]]
-    kissing = [[1, 1/np.sqrt(3), 1/3], [5, 5, 1]]
-    result = find_my_tangent_circle(tangential.copy(), kissing)
-    assert [1, 1/np.sqrt(3), 1/3] in result
+    tang_cir = [[0.0, 0.0, 50.0], [25.0, 0.0, 25.0], [-25.0, 0.0, 25.0]]
+    kiss_cir = [[0.0, 33.33, 16.67], [-0.0, -33.33, 16.67]]
+    result = find_my_tangent_circle(tang_cir, kiss_cir)
+    assert [0.0, 33.33, 16.67] in result
