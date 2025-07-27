@@ -69,11 +69,13 @@ def find_my_tangent_circle(tangential_circles,kissing_circles):
     tangential_circles.extend(result)
     return tangential_circles
 
-def round_my_circle(circle):
+def round_my_circle(circle): 
     for i in range(0,np.shape(circle)[0]):
         for j in range(0,np.shape(circle)[1]):
             if circle[i][j] == -0.0:
                 circle[i][j] = 0.0
+            else:
+                circle[i][j] = round(circle[i][j],2)
     return circle
 
 def find_number_of_unique_radii(input_array):
