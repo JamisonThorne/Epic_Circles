@@ -14,18 +14,17 @@ Calculates the center of the tangential circle:
 
 ###### z4 = z1*k1+z2*k2+z3*k3+/-2(root(k1*k2*z1*z2+k2*k3*z2*z3+k1*k3*z1*z3))/k4
 
-### z is the complex number of x,y (center coordinates or circle) where z = x + iy  
+z is the complex number of x,y (center coordinates or circle) where z = x + iy  
 
 ***Papers***: https://arxiv.org/pdf/math/0101066
 
-Key Properties
+***Key Properties***
 
 Mutual Tangency: Each circle touches exactly three others at single points
 Curvature Relationship: The curvatures follow a precise quadratic relationship
 Soddy Circles: Named after Frederick Soddy, who rediscovered the theorem in 1936
 
-Applications
-Mathematics
+***Applications***
 
 Fractal Geometry: Apollonian gaskets and circle packings
 Number Theory: Connections to continued fractions and Diophantine equations
