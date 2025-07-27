@@ -1,6 +1,6 @@
 # Descartes Kissing Circles + Apollonian Gasket's
 
-Descartes' kissing circles, also known as the Descartes Circle Theorem, describes the relationship between four mutually tangent circles. This elegant mathematical concept, formulated by René Descartes in 1643, provides a formula to calculate the ***curvature of a fourth circle when three mutually tangent circles are known.
+Descartes' kissing circles, also known as the Descartes Circle Theorem, describes the relationship between four mutually tangent circles. This elegant mathematical concept, formulated by René Descartes in 1643, provides a formula to calculate the ***curvature*** of a fourth circle when three mutually tangent circles are known.
 
 ### The Descartes Circle Theorem
 Given three circles touching tangentially, the inner circle that fits inbetween all three has a curvature k4 such that:
@@ -8,7 +8,7 @@ Given three circles touching tangentially, the inner circle that fits inbetween 
 ###### (k₁ + k₂ + k₃ + k₄)² = 2(k₁² + k₂² + k₃² + k₄²) => k4 = k1+k2+k3+/-2*sqrt(k1*k2+k2*k3+k1*k3)
 
 ### Complex Decartes Circle Theorem
-Finds the ***center of the fourth circles radius
+Finds the ***center*** of the fourth circles radius
 
 Calculates the center of the tangential circle:
 
@@ -16,7 +16,7 @@ Calculates the center of the tangential circle:
 
 ### z is the complex number of x,y (center coordinates or circle) where z = x + iy  
 
-***Papers: https://arxiv.org/pdf/math/0101066
+***Papers***: https://arxiv.org/pdf/math/0101066
 
 Key Properties
 
