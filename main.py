@@ -6,6 +6,26 @@ import matplotlib.pyplot as plt
 from matplotlib.patches import Circle
 import numpy as np
 
+#### TODO ### 
+"""
+1. Continue to add to .md file better explaining project. Variable names etc...
+2. Look at other markdown files to see what can be approved, specifically mathematical md files
+3. Can you breakdown code further to make things more simplified?
+4. Create unit testing for decartes_theorems.py
+5. Can you clean up main function?
+6. Add output picture to markdown file
+7. Fix outside edge conditions to remove outer circle generation
+8. Document all functions
+9. Add type hints
+10. Are you following the DRY principle?
+11. Are you following the SRP principle?
+12. Add f{strings} for better output of code
+13. Are function names clear? Prefixes should have verb
+14. Are variable names clear and understandable?
+15. Look at other projects and see what else you need to add
+"""
+
+
 def main():
     R = 50  # Outer circle needs to be large enough to display smaller circles generated
     number_of_starting_inner_circles = 2    # acceptable values; 2,3,4,5
