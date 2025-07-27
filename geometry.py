@@ -15,20 +15,6 @@ def convert_circle_radius_to_curvature(tangential_circles):
             tangential_circles[i][2] = 1/tangential_circles[i][2]
     return tangential_circles
 
-def are_circles_tangent(circle1, circle2):
-    #determines if two circles are tangent
-    # circle = [x, y, r]
-    x1, y1, r1 = circle1
-    x2, y2, r2 = circle2
-    center_dist = sqrt((x1 - x2)**2 + (y1 - y2)**2)
-    # Check for external tangency
-    if isclose(center_dist, r1 + r2):
-        return True
-    # Check for internal tangency
-    if isclose(center_dist, abs(r1 - r2)):
-        return True
-    return False
-
 def track_tangent_circles(current_circle):
     #Creates NxN zero matrix (tracker) where N is the number of circles in current_circle. 
     # Loops through each pair of circles and notes where they are tangent in the zero matrix.
@@ -45,35 +31,37 @@ def track_tangent_circles(current_circle):
     tracker = tracker * np.tri(np.shape(tracker)[0], np.shape(tracker)[1], np.shape(tracker)[2], dtype=int)
     return tracker
 
-def circles_intersect_test(circle1, circle2, tol):
+def are_circles_tangent(circle1, circle2):
+    #determines if two circles are tangent
     # circle = [x, y, r]
     x1, y1, r1 = circle1
     x2, y2, r2 = circle2
     center_dist = sqrt((x1 - x2)**2 + (y1 - y2)**2)
-    # Circles intersect if their centers are closer than the sum of radii
-    # and farther apart than the absolute difference of radii
-    # return abs(r1 -  r2) < center_dist < (r1 + r2) 
-    return isclose(center_dist, r1 + r2, abs_tol=tol) or isclose(center_dist, abs(r1 - r2), abs_tol=tol)
-    
-def three_circle_intersect_test(test_circle, other_circles, tol=0.02):
-    # other_circles: list of three circles, each [x, y, r]
-    return all(circles_intersect_test(test_circle, c, tol) for c in other_circles)
+    # Check for external tangency
+    if isclose(center_dist, r1 + r2, rel_tol=0.01):
+        return True
+    # Check for internal tangency
+    if isclose(center_dist, abs(r1 - r2), rel_tol=0.01):
+        return True
+    return False
 
 def find_my_tangent_circle(tangential_circles,kissing_circles):
-    result = []
-    for i in range(0,len(kissing_circles)):
-        # print("before kissing_circles",kissing_circles)
-        # print("tangential_circles",tangential_circles)
-        if three_circle_intersect_test(kissing_circles[i],tangential_circles):
-            result.append(kissing_circles[i])
-    tangential_circles.extend(result)
+    for tangential_circle_check in kissing_circles:
+        counter = 0
+        for tangent_circle in tangential_circles:
+            if are_circles_tangent(tangential_circle_check, tangent_circle):
+                counter+=1
+        if counter == 3:
+            tangential_circles.append(tangential_circle_check)
     return tangential_circles
 
-def round_my_circle(circle):
+def round_my_circle(circle): 
     for i in range(0,np.shape(circle)[0]):
         for j in range(0,np.shape(circle)[1]):
             if circle[i][j] == -0.0:
                 circle[i][j] = 0.0
+            else:
+                circle[i][j] = round(circle[i][j],2)
     return circle
 
 def find_number_of_unique_radii(input_array):
