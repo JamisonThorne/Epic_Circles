@@ -12,7 +12,7 @@ Finds the ***center*** of the fourth circles radius
 
 Calculates the center of the tangential circle:
 
-###### $$ z_4 = \frac{z_1 k_1 + z_2 k_2 + z_3 k_3 \pm 2\sqrt{k_1 k_2 z_1 z_2 + k_2 k_3 z_2 z_3 + k_1 k_3 z_1 z_3}}{k_4} $$
+###### $$z_4 = \frac{z_1 k_1 + z_2 k_2 + z_3 k_3 \pm 2\sqrt{k_1 k_2 z_1 z_2 + k_2 k_3 z_2 z_3 + k_1 k_3 z_1 z_3}}{k_4}$$
 
 z is the complex number of x,y (center coordinates or circle) where z = x + iy  
 
