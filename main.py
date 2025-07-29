@@ -23,6 +23,7 @@ import numpy as np
 13. Are function names clear? Prefixes should have verb
 14. Are variable names clear and understandable?
 15. Look at other projects and see what else you need to add
+16. Link youtube videos that inspired your project
 """
 
 
