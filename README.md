@@ -2,6 +2,8 @@
 
 Descartes' kissing circles, also known as the Descartes Circle Theorem, describes the relationship between four mutually tangent circles. This elegant mathematical concept, formulated by René Descartes in 1643, provides a formula to calculate the ***curvature*** of a fourth circle when three mutually tangent circles are known.
 
+![Rene Decartes (1596 - 1650)](decartes.jpg "Rene Decartes")
+
 ### The Descartes Circle Theorem
 Given three circles touching tangentially, the inner circle that fits between all three circles has curvature k4 such that:
 
