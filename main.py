@@ -1,19 +1,14 @@
 from math import cos, sin, radians
 # from plots import plot_myCircles
 from geometry import track_tangent_circles, find_small_r
-from decartes_theorems import find_descartes_circles
+from descartes_theorems import find_descartes_circles
 import matplotlib.pyplot as plt
 from matplotlib.patches import Circle
 import numpy as np
 
 #### TODO ### 
 """
-1. Continue to add to .md file better explaining project. Variable names etc...
 2. Look at other markdown files to see what can be approved, specifically mathematical md files
-3. Can you breakdown code further to make things more simplified?
-4. Create unit testing for decartes_theorems.py
-5. Can you clean up main function?
-6. Add output picture to markdown file
 7. Fix outside edge conditions to remove outer circle generation
 8. Document all functions
 9. Add type hints
@@ -24,6 +19,7 @@ import numpy as np
 14. Are variable names clear and understandable?
 15. Look at other projects and see what else you need to add
 16. Link youtube videos that inspired your project
+Final. Add final image of circle to 
 """
 
 
