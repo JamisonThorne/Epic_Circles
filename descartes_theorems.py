@@ -18,12 +18,8 @@ def complex_descartes_theorem(current_circle):
     #   Calculates the center of the tangential circle:
     #       z4 = z1*k1+z2*k2+z3*k3+/-2(root(k1*k2*z1*z2+k2*k3*z2*z3+k1*k3*z1*z3))/k4
     #   z is the complex number of x,y (center coordinates or circle) where z = x + iy    
-    z1 = current_circle[0][0]
-    z2 = current_circle[1][0]
-    z3 = current_circle[2][0]
-    k1 = current_circle[0][1]
-    k2 = current_circle[1][1]
-    k3 = current_circle[2][1]
+    z1, z2, z3 = current_circle[0][0], current_circle[1][0], current_circle[2][0]
+    k1, k2, k3 = current_circle[0][1], current_circle[1][1], current_circle[2][1]
     k4a, k4b = descartes_theorem(k1,k2,k3)
     for k4 in [k4a, k4b]:
         r4 = 1/k4
