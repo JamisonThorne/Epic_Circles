@@ -2,8 +2,6 @@
 
 from __future__ import annotations
 
-
-
 def complex_descartes_theorem(current_circle):
     kissing_circle = []
     #   Calculates the center of the tangential circle:
