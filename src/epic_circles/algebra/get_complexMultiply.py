@@ -2,8 +2,6 @@
 
 from __future__ import annotations
 
-from math import sqrt, atan2, cos, sin
-
 def get_complexMultiply(complex_number_1,complex_number_2):
     # (a + ib) (c + id) = (ac - bd) + i(ad + bc)
     a = complex_number_1.real

@@ -2,8 +2,6 @@
 
 from __future__ import annotations
 
-from math import sqrt, atan2, cos, sin
-
 def get_complexAdd(complex_number1,complex_number2):
     #   Adds two complex numbers together and returns resulting complex number
     #   (a + ib) + (c + id) = (a + c) + i(b + d)
