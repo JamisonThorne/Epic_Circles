@@ -3,17 +3,16 @@
 from __future__ import annotations
 
 from math import sqrt
-from epic_circles.theorems.descartesTheorem import descartesTheorem
 from epic_circles.algebra.complex_numbers import get_complex_add,get_complex_subtract,get_complex_root,get_complex_multiply,get_real_multiply
 
-def complex_descartesTheorem(current_circle):
+def complex_descartes_theorem(current_circle):
     kissing_circle = []
     #   Calculates the center of the tangential circle:
     #       z4 = z1*k1+z2*k2+z3*k3+/-2(root(k1*k2*z1*z2+k2*k3*z2*z3+k1*k3*z1*z3))/k4
     #   z is the complex number of x,y (center coordinates or circle) where z = x + iy    
     z1, z2, z3 = current_circle[0][0], current_circle[1][0], current_circle[2][0]
     k1, k2, k3 = current_circle[0][1], current_circle[1][1], current_circle[2][1]
-    k4a, k4b = descartesTheorem(k1,k2,k3)
+    k4a, k4b = descartes_theorem(k1,k2,k3)
     for k4 in [k4a, k4b]:
         r4 = 1/k4
         #########
@@ -35,7 +34,7 @@ def complex_descartesTheorem(current_circle):
         kissing_circle.append([z4.real,z4.imag,r4]) #   center, radius
         return kissing_circle
 
-def descartesTheorem(k1,k2,k3):
+def descartes_theorem(k1,k2,k3):
     #   k4 = k1+k2+k3+/-2*sqrt(k1*k2+k2*k3+k1*k3)
     #   k4 has two possible values
     k_sum = k1+k2+k3

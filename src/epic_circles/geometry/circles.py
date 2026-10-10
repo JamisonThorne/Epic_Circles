@@ -2,11 +2,11 @@
 
 from __future__ import annotations
 
-from epic_circles.general.get_uniqueArray import get_uniqueArray
+from epic_circles.general.get_unique_array import get_unique_array
 import numpy as np
 from math import sqrt
 
-def get_roundedCircle(circle):
+def get_rounded_circle(circle):
     for i in range(0,np.shape(circle)[0]):
         for j in range(0,np.shape(circle)[1]):
             # circle[i][j] = round(circle[i][j], 3)
@@ -14,7 +14,7 @@ def get_roundedCircle(circle):
                 circle[i][j] = 0.0
     return circle
 
-def get_smallestRadius(R, number_of_starting_circles):
+def get_smallest_radius(R, number_of_starting_circles):
     match number_of_starting_circles:
         case 2:
             return R/2
@@ -25,10 +25,10 @@ def get_smallestRadius(R, number_of_starting_circles):
         case 5:
             return R/(1+sqrt(2*(1+(1/sqrt(5)))))
 
-def get_uniqueRadii(input_array):
+def get_unique_radii(input_array):
     radius_values = []
     for i in range(0,len(input_array)):
         radius_values.append(input_array[i][2])
     radius_values.sort()
-    radius_values = get_uniqueArray(radius_values)
+    radius_values = get_unique_array(radius_values)
     return np.array(radius_values)

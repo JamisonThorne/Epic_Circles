@@ -2,11 +2,11 @@
 
 from __future__ import annotations
 
-from epic_circles.geometry.get_uniqueRadii import get_uniqueRadii
+from epic_circles.geometry.circles import get_unique_radii
 import matplotlib.pyplot as plt
 
 def plot_circles(current_circle,graph_bounds):
-    unique_radii = get_uniqueRadii(current_circle)
+    unique_radii = get_unique_radii(current_circle)
     # cmap = plt.get_cmap('hsv')
     # cmap = plt.get_cmap('nipy_spectral')
     # colors = [cmap(i / len(unique_radii)) for i in range(len(unique_radii))]
