@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-import check_circleIntersection
+from epic_circles.geometry.check_circleIntersection import check_circleIntersection
 
 def check_thrice_circleIntersection(test_circle, other_circles, tol=0.02):
     # other_circles: list of three circles, each [x, y, r]

@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from epic_circles.general.get_uniqueArray import get_uniqueArray
+import numpy as np
 
 def get_uniqueRadii(input_array):
     radius_values = []
