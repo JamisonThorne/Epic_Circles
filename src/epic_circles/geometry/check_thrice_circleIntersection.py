@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+import check_circleIntersection
+
 def check_thrice_circleIntersection(test_circle, other_circles, tol=0.02):
     # other_circles: list of three circles, each [x, y, r]
-    return all(circles_intersect_test(test_circle, c, tol) for c in other_circles)
+    return all(check_circleIntersection(test_circle, c, tol) for c in other_circles)

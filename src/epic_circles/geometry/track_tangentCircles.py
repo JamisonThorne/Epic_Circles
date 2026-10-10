@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import numpy as np
 
-def track_tangent_circles(current_circle):
+def track_tangentCircles(current_circle):
     #Creates NxN zero matrix (tracker) where N is the number of circles in current_circle. 
     # Loops through each pair of circles and notes where they are tangent in the zero matrix.
     tracker = []
@@ -13,7 +13,7 @@ def track_tangent_circles(current_circle):
         for j in range(0,len(current_circle)):
             for k in range(0,len(current_circle)):
                 if i != j and i != k and j != k:  # Ensure we are not comparing the same circle
-                    if are_circles_tangent(current_circle[i], current_circle[j]) and are_circles_tangent(current_circle[i], current_circle[k]) and are_circles_tangent(current_circle[j], current_circle[k]):
+                    if check_tangentCircles(current_circle[i], current_circle[j]) and check_tangentCircles(current_circle[i], current_circle[k]) and check_tangentCircles(current_circle[j], current_circle[k]):
                         tracker[i][j][k] = 1
                     else:
                         tracker[i][j][k] = 0

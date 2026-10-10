@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import numpy as np
 
-def round_my_circle(circle):
+def get_roundedCircle(circle):
     for i in range(0,np.shape(circle)[0]):
         for j in range(0,np.shape(circle)[1]):
             # circle[i][j] = round(circle[i][j], 3)
