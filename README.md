@@ -57,10 +57,10 @@
     <li>
       <a href="#about-the-project">About The Project</a>
       <ul>
-        <li><a href="#Descartes-Circle-Theorem">Built With</a></li>
+        <li><a href="#Descartes-Circle-Theorem">Descartes Circle Theorem</a></li>
       </ul>
       <ul>
-        <li><a href="#Complex-Decartes-Circle-Theorem">Built With</a></li>
+        <li><a href="#Complex-Decartes-Circle-Theorem">Complex Decartes Circle Theorem</a></li>
       </ul>
     </li>
     <li>
