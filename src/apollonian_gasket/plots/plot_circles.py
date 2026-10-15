@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from epic_circles.geometry.circles import get_unique_radii
+from apollonian_gasket.geometry.circles import get_unique_radii
 import matplotlib.pyplot as plt
 
 def plot_circles(current_circle,graph_bounds):
