@@ -81,7 +81,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-![Rene Decartes (1596 - 1650)](images\decartes.jpg "Rene Decartes")
+![Rene Decartes (1596 - 1650)](images/decartes.jpg "Rene Decartes")
 
 I discovered apollonian gaskets from the youtube channel Numberphile featuring Simon Pampena. An apollonian gasket starts with three tangent circles and through a series of equations a fourth circle whose curvature is tangent to all three is found. This process could repeat indefinitely and results in an infinite fractal generated image.
 
