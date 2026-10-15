@@ -85,13 +85,13 @@
 
 I discovered apollonian gaskets from the youtube channel Numberphile featuring Simon Pampena. An apollonian gasket starts with three tangent circles and through a series of equations a fourth circle whose curvature is tangent to all three is found. This process could repeat indefinitely and results in an infinite fractal generated image.
 
-## Descartes Circle Theorem
+### Descartes Circle Theorem
 
 Descartes' kissing circles, also known as the Descartes Circle Theorem, describes the relationship between four mutually tangent circles. This elegant mathematical concept, formulated by René Descartes in 1643, provides a formula to calculate the ***curvature*** of a fourth circle when three mutually tangent circles are known.
 
 ### $$(k_1 + k_2 + k_3 + k_4)^2 = 2(k_1^2 + k_2^2 + k_3^2 + k_4^2)$$ $\\Rightarrow$ $$k_4 = k_1 + k_2 + k_3 \pm 2\sqrt{k_1 k_2 + k_2 k_3 + k_1 k_3}$$
 
-## Complex Decartes Circle Theorem
+### Complex Decartes Circle Theorem
 Finds the ***center*** of the aforementioned fourth circles radius
 
 Calculates the center of the tangential circle:
