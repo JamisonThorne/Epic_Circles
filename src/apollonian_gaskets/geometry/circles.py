@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from apollonian_gasket.general.get_unique_array import get_unique_array
+from apollonian_gaskets.general.get_unique_array import get_unique_array
 import numpy as np
 from math import sqrt
 from math import radians, cos, sin

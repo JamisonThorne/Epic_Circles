@@ -3,10 +3,10 @@
 from __future__ import annotations
 
 from math import sqrt
-from apollonian_gasket.algebra.complex_numbers import get_complex_add,get_complex_subtract,get_complex_root,get_complex_multiply,get_real_multiply, convert_to_complex_numbers
-from apollonian_gasket.geometry.conversions import get_curvature_or_radius_conversion
-from apollonian_gasket.geometry.circles import get_rounded_circle, check_for_initial_circle_to_invert
-from apollonian_gasket.geometry.tangency import get_tangent_circles
+from apollonian_gaskets.algebra.complex_numbers import get_complex_add,get_complex_subtract,get_complex_root,get_complex_multiply,get_real_multiply, convert_to_complex_numbers
+from apollonian_gaskets.geometry.conversions import get_curvature_or_radius_conversion
+from apollonian_gaskets.geometry.circles import get_rounded_circle, check_for_initial_circle_to_invert
+from apollonian_gaskets.geometry.tangency import get_tangent_circles
 
 def complex_descartes_theorem(current_circle):
     kissing_circle = []
