@@ -169,8 +169,10 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 ## Roadmap
 
 - [x] ***v1.0*** - Initial release with core features
-- [ ] ***v1.1*** - Add command line arguments
-- [ ] ***v1.2*** - Speed improvements for number of circles > 6
+- [ ] ***v1.1*** - Add unit tests
+- [ ] ***v1.2*** - Add command line arguments
+- [ ] ***v1.3*** - Speed improvements for number of circles > 6
+- [ ] ***v1.4*** - Look into automation of changelog if possible
 
 See the [open issues](https://github.com/JamisonThorne/apollonian_gaskets/issues) for a full list of proposed features (and known issues).
 
