@@ -10,7 +10,7 @@ log = get_logger(__name__)
 
 def main():
     R = 1000 # select any given starting radius 
-    number_of_starting_inner_circles = 5 # selecting desired number of inner circles
+    number_of_starting_inner_circles = 3 # selecting desired number of inner circles
 
     graph_bounds = R + R/64
     # create a circle_tracker that contains all circles that need to be drawn

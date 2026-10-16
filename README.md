@@ -11,13 +11,12 @@
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 [![project_license][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
 
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
   <a href="https://github.com/JamisonThorne/template_project">
-    <img src="images/exalted.ico" alt="exalted" width="64" height="64">
+    <img src="images/icon.ico" alt="icon" width="64" height="64">
   </a>
 
 <h3 align="center">Apollonian Gaskets</h3>
