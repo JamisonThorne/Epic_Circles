@@ -1,10 +1,10 @@
 """Generates an appolonian gasket with only the starting circle and number of inner circles as input. Calculations based on descartes complex theorem for finding kissing circles"""
 
-from epic_circles.geometry.tangency import is_circles_tangent
-from epic_circles.geometry.circles import initialize_setup
-from epic_circles.plots.plot_circles import plot_circles
-from epic_circles.theorems.descartes import find_descartes_circles
-from epic_circles.utils.logging import get_logger
+from apollonian_gaskets.geometry.tangency import is_circles_tangent
+from apollonian_gaskets.geometry.circles import initialize_setup
+from apollonian_gaskets.plots.plot_circles import plot_circles
+from apollonian_gaskets.theorems.descartes import find_descartes_circles
+from apollonian_gaskets.utils.logging import get_logger
 
 log = get_logger(__name__)
 

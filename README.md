@@ -1,27 +1,15 @@
 <!-- Improved compatibility of back to top link: See: https://github.com/othneildrew/Best-README-Template/pull/73 -->
 <a id="readme-top"></a>
 <!--
-*** Thanks for checking out the Best-README-Template. If you have a suggestion
-*** that would make this better, please fork the repo and create a pull request
-*** or simply open an issue with the tag "enhancement".
-*** Don't forget to give the project a star!
-*** Thanks again! Now go create something AMAZING! :D
--->
-
-
 
 <!-- PROJECT SHIELDS -->
 <!--
-*** I'm using markdown "reference style" links for readability.
 *** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
 *** See the bottom of this document for the declaration of the reference variables
-*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
--->
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
 [![project_license][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
@@ -90,18 +78,18 @@ I discovered apollonian gaskets from the youtube channel Numberphile featuring S
 
 ### Descartes Circle Theorem
 
-Descartes' kissing circles, also known as the Descartes Circle Theorem, describes the relationship between four mutually tangent circles. This elegant mathematical concept, formulated by René Descartes in 1643, provides a formula to calculate the ***curvature*** of a fourth circle when three mutually tangent circles are known.
+Descartes' kissing circles, also known as the Descartes Circle Theorem, describes the relationship between four mutually tangent circles. This elegant mathematical concept, formulated by René Descartes in 1643, provides a formula to calculate the curvature ($k$) of a fourth circle when three mutually tangent circles are known.
 
-### $$(k_1 + k_2 + k_3 + k_4)^2 = 2(k_1^2 + k_2^2 + k_3^2 + k_4^2)$$ $\\Rightarrow$ $$k_4 = k_1 + k_2 + k_3 \pm 2\sqrt{k_1 k_2 + k_2 k_3 + k_1 k_3}$$
+##### $$(k_1 + k_2 + k_3 + k_4)^2 = 2(k_1^2 + k_2^2 + k_3^2 + k_4^2)$$  
+
+##### $$k_4 = k_1 + k_2 + k_3 \pm 2\sqrt{k_1 k_2 + k_2 k_3 + k_1 k_3}$$
 
 ### Complex Decartes Circle Theorem
-Finds the ***center*** of the aforementioned fourth circles radius
+Calculates the center of a tangential circle with radius $k_4$:
 
-Calculates the center of the tangential circle:
+##### $$z_4 = \frac{z_1 k_1 + z_2 k_2 + z_3 k_3 \pm 2\sqrt{k_1 k_2 z_1 z_2 + k_2 k_3 z_2 z_3 + k_1 k_3 z_1 z_3}}{k_4}$$
 
-# $$z_4 = \frac{z_1 k_1 + z_2 k_2 + z_3 k_3 \pm 2\sqrt{k_1 k_2 z_1 z_2 + k_2 k_3 z_2 z_3 + k_1 k_3 z_1 z_3}}{k_4}$$
-
-z is the complex number of x,y (center coordinates or circle) where z = x + iy  
+$z$ is the complex number of $x$,$y$ (center coordinates or circle) where $z = x + iy$  
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -109,14 +97,9 @@ z is the complex number of x,y (center coordinates or circle) where z = x + iy
 
 ### Built With
 
-* [![Next][Next.js]][Next-url]
-* [![React][React.js]][React-url]
-* [![Vue][Vue.js]][Vue-url]
-* [![Angular][Angular.io]][Angular-url]
-* [![Svelte][Svelte.dev]][Svelte-url]
-* [![Laravel][Laravel.com]][Laravel-url]
-* [![Bootstrap][Bootstrap.com]][Bootstrap-url]
-* [![JQuery][JQuery.com]][JQuery-url]
+* [![Python][Python-badge]][Python-url]
+* [![uv][uv-badge]][uv-url]
+* [![TOML][TOML-badge]][TOML-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -125,37 +108,44 @@ z is the complex number of x,y (center coordinates or circle) where z = x + iy
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+To get a local copy up and running, follow these steps.
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
+- Python 3.11 or newer
+- [uv](https://docs.astral.sh/uv/) (recommended) or pip
+
+To install uv:
+
+```sh
+# macOS / Linux
+curl -LsSf https://astral.sh/uv/install.sh | sh
+
+# Windows (PowerShell)
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+```
 
 ### Installation
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
-   ```sh
+1. Clone the repo
+```sh
    git clone https://github.com/JamisonThorne/apollonian_gaskets.git
-   ```
-3. Install NPM packages
-   ```sh
-   npm install
-   ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
-   ```
-5. Change git remote url to avoid accidental pushes to base project
-   ```sh
-   git remote set-url origin JamisonThorne/apollonian_gaskets
-   git remote -v # confirm the changes
-   ```
+   cd apollonian_gaskets
+```
+2. Install the dependencies (Matplotlib and NumPy)
+```sh
+   uv sync
+```
+   Or, if you prefer pip:
+```sh
+   python -m venv .venv
+   source .venv/bin/activate    # Windows: .venv\Scripts\activate
+   pip install -e .
+```
+3. Run it
+```sh
+   uv run run.py
+```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -164,7 +154,11 @@ This is an example of how to list things you need to use the software and how to
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+Edit the following lines in run.py to adjust output accordingly
+```
+R = 1000 # select any given starting radius 
+number_of_starting_inner_circles = 5 # selecting desired number of inner circles
+```
 
 _For more examples, please refer to the [Documentation](https://example.com)_
 
@@ -175,10 +169,9 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 <!-- ROADMAP -->
 ## Roadmap
 
-- [ ] Feature 1
-- [ ] Feature 2
-- [ ] Feature 3
-    - [ ] Nested Feature
+- [x] ***v1.0*** - Initial release with core features
+- [ ] ***v1.1*** - Add command line arguments
+- [ ] ***v1.2*** - Speed improvements for number of circles > 6
 
 See the [open issues](https://github.com/JamisonThorne/apollonian_gaskets/issues) for a full list of proposed features (and known issues).
 
@@ -213,7 +206,7 @@ Don't forget to give the project a star! Thanks again!
 <!-- LICENSE -->
 ## License
 
-Distributed under the project_license. See `LICENSE.txt` for more information.
+Distributed under the Unlicense
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -222,7 +215,7 @@ Distributed under the project_license. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Your Name - jamison.e.thorne@gmail.com
+Jamison Thorne - jamison.e.thorne@gmail.com
 
 Project Link: [https://github.com/JamisonThorne/apollonian_gaskets](https://github.com/JamisonThorne/apollonian_gaskets)
 
@@ -233,9 +226,9 @@ Project Link: [https://github.com/JamisonThorne/apollonian_gaskets](https://gith
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 
-* []()
-* []()
-* []()
+* [Numberphile Video](https://www.youtube.com/watch?v=sG_6nlMZ8f4)
+* [Paper by Jeffrey Lagarias, Colin Mallows and Allan Wilks](https://arxiv.org/pdf/math/0101066)
+* [Apollonian Gaskets Wiki](https://en.wikipedia.org/wiki/Apollonian_gasket)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -257,19 +250,9 @@ Project Link: [https://github.com/JamisonThorne/apollonian_gaskets](https://gith
 [linkedin-url]: https://linkedin.com/in/jamison-thorne/
 [product-screenshot]: images/screenshot.png
 <!-- Shields.io badges. You can a comprehensive list with many more badges at: https://github.com/inttter/md-badges -->
-[Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
-[Next-url]: https://nextjs.org/
-[React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
-[React-url]: https://reactjs.org/
-[Vue.js]: https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D
-[Vue-url]: https://vuejs.org/
-[Angular.io]: https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white
-[Angular-url]: https://angular.io/
-[Svelte.dev]: https://img.shields.io/badge/Svelte-4A4A55?style=for-the-badge&logo=svelte&logoColor=FF3E00
-[Svelte-url]: https://svelte.dev/
-[Laravel.com]: https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white
-[Laravel-url]: https://laravel.com
-[Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
-[Bootstrap-url]: https://getbootstrap.com
-[JQuery.com]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
-[JQuery-url]: https://jquery.com 
+[Python-badge]: https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white
+[Python-url]: https://www.python.org/
+[uv-badge]: https://img.shields.io/badge/uv-DE5FE9?style=for-the-badge&logo=uv&logoColor=white
+[uv-url]: https://docs.astral.sh/uv/
+[TOML-badge]: https://img.shields.io/badge/TOML-9C4221?style=for-the-badge&logo=toml&logoColor=white
+[TOML-url]: https://toml.io/
